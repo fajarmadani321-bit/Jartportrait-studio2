@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarportrait Studio - Jasa Lukis Wajah Pensil Premium</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 25px;
+        }
+        nav ul li a {
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+        nav ul li a:hover {
+            color: #b3a280; /* Warna aksen gold/vintage */
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 10%;
+            text-align: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1200') no-repeat center/cover;
+        }
+        .hero h1 {
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #aaaaaa;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #b3a280;
+            color: #121212;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #d1c2a5;
+        }
+
+        /* Section Global Layout */
+        .section {
+            padding: 80px 10%;
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #b3a280;
+            margin: 10px auto 0 auto;
+        }
+
+        /* Spesifikasi / Fitur */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .spec-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #2d2d2d;
+            text-align: center;
+        }
+        .spec-card h3 {
+            color: #b3a280;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Harga & Tabel */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        th {
+            background-color: #252525;
+            color: #b3a280;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #222222;
+        }
+        .price-tag {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .addons {
+            margin-top: 30px;
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 6px;
+            border-left: 4px solid #b3a280;
+        }
+        .addons h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .addons ul {
+            list-style-position: inside;
+            color: #aaaaaa;
+        }
+
+        /* Cara Pemesanan */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .step-card {
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 6px;
+            position: relative;
+        }
+        .step-num {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d2d2d;
+        }
+        .step-card h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0b0b;
+            padding: 40px 10%;
+            text-align: center;
+            font-size: 14px;
+            color: #777777;
+            border-top: 1px solid #2d2d2d;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        .socials a {
+            margin: 0 10px;
+            color: #b3a280;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">JARPORTRAIT</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#spesifikasi">Spesifikasi</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#cara-pesan">Cara Memesan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Abadikan momenmu jadi karya seni </h1>
+        <p>Jasa lukis wajah premium menggunakan media pensil berkualitas tinggi. Dikerjakan dengan detail presisi secara manual (100% handmade) untuk kado istimewa atau pajangan estetik Anda.</p>
+        <a href="https://wa.me/6282113470573" class="btn" target="_blank">Pesan via WhatsApp</a>
+    </section>
+
+    <!-- Spesifikasi Section -->
+    <section class="section" id="spesifikasi">
+        <h2>Spesifikasi Teknis & Kualitas</h2>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>Media Premium</h3>
+                <p>Menggunakan kertas khusus gambar bebas asam (Acid-Free) yang menjamin lukisan tidak menguning dan awet puluhan tahun.</p>
+            </div>
+            <div class="spec-card">
+                <h3>Alat Profesional</h3>
+                <p>Pensil grafit dan charcoal terbaik untuk menghasilkan gradasi gelap-terang (Chiaroscuro) yang tajam dan berkarakter.</p>
+            </div>
+            <div class="spec-card">
+                <h3>100% Handmade</h3>
+                <p>Murni guratan tangan manual tanpa filter digital, fokus pada akurasi kemiripan karakter wajah dan detail anatomi.</p>
+            </div>
+            <div class="spec-card">
+                <h3>Finishing Aman</h3>
+                <p>Dilapisi dengan Fixative Spray khusus pelindung di akhir proses agar arsiran pensil terkunci, tidak luntur, atau pudar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harga Section -->
+    <section class="section" id="harga">
+        <h2>Pilihan Paket & Harga Jasa</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Paket</th>
+                        <th>Ukuran Kertas</th>
+                        <th>Jumlah Wajah</th>
+                        <th>Spesifikasi Tambahan</th>
+                        <th>Harga Jasa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mini Portrait (A5)</strong></td>
+                        <td>14.8 x 21 cm</td>
+                        <td>Maks. 1 Wajah</td>
+                        <td>Ukuran imut, pas untuk kado personal meja belajar atau aesthetic desk setup.</td>
+                        <td class="price-tag">Rp 100.000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minimalist (A4)</strong></td>
+                        <td>21 x 29.7 cm</td>
+                        <td>Maks. 1 Wajah</td>
+                        <td>Ukuran dekorasi kamar standar, fokus pada detail ekspresi wajah hingga bahu.</td>
+                        <td class="price-tag">Rp 200.000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Classic (A3) - Best Seller</strong></td>
+                        <td>29.7 x 42 cm</td>
+                        <td>Maks. 2 Wajah</td>
+                        <td>Ukuran ideal pajangan ruang tamu / momen spesial keluarga & pernikahan. Detail rambut sangat tajam.</td>
+                        <td class="price-tag">Rp 350.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="addons">
+            <h4>🛠️ Opsi Biaya Tambahan (Opsional):</h4>
+            <ul>
+                <li><strong>Tambah Wajah:</strong> +Rp 50.000-100.000 per wajah ekstra (Khusus ukuran A4 & A3).</li>
+                <li><strong>Frame / Bingkai Minimalis:</strong> A5 (+Rp 15.000) | A4 (+Rp 25.000) | A3 (+Rp 45.000).</li>
+                <li><strong>Layanan Express:</strong> +30% dari total harga (Prioritas kilat, selesai dalam 2-3 hari kerja).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Cara Pemesanan Section -->
+    <section class="section" id="cara-pesan">
+        <h2>Cara Pemesanan</h2>
+        <div class="steps">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h3>Kirim Foto</h3>
+                <p>Kirimkan foto wajah terbaik beresolusi tinggi dengan pencahayaan yang jelas via WhatsApp.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h3>Konsultasi & Deal</h3>
+                <p>Tentukan pilihan ukuran kertas, opsi bingkai, serta batas waktu pengerjaan lukisan.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h3>Pembayaran DP</h3>
+                <p>Melakukan pembayaran uang muka (DP) sebesar 50% sebagai tanda pengerjaan dimulai.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h3>Progres & Pelunasan</h3>
+                <p>Kami kirimkan foto progres berkala. Setelah selesai dan Anda cocok, lakukan pelunasan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Jarportrait Studio</strong> &copy; 2026. Hak Cipta Dilindungi.</p>
+        <p>Lokasi: Jakarta, Indonesia (Melayani Pengiriman Seluruh Nusantara)</p>
+        <div class="socials">
+            <a href="https://instagram.com/jarportrait" target="_blank">Instagram: @jarportrait</a> | 
+            <a href="https://wa.me/6282113470573" target="_blank">Wa: 082113470573</a>
+        </div>
+    </footer>
+
+</body>
+</html>
